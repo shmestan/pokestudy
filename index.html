@@ -669,8 +669,8 @@ const SHOP_ITEMS = [
   {id:'upgrade',     sprite:'up-grade.png',           icon:'💾', name:'Upgrade',        cost:100, desc:'Evolves Porygon → Porygon2'},
   {id:'fossil',      sprite:'dome-fossil.png',        icon:'🦕', name:'Mystery Fossil', cost:100, desc:'Revive a random fossil Pokémon'},
   {id:'egg',         sprite:'oval-stone.png',         icon:'🥚', name:'Mystery Egg',    cost:100, desc:'Hatch a random baby Pokémon'},
-  {id:'rarehunt',    sprite:'ultra-ball.png',         icon:'🌟', name:'Rare Hunt',      cost:300, desc:'Snag a random spawnable Ultra Rare Pokémon'},
-  {id:'leghunt',     sprite:'master-ball.png',        icon:'✨', name:'Legendary Hunt',    cost:600, desc:'Hunt a random Legendary Pokémon'},
+  {id:'rarehunt',    sprite:'ultra-ball.png',         icon:'🌟', name:'Rare Encounter',      cost:300, desc:'Snag a random spawnable Ultra Rare Pokémon'},
+  {id:'leghunt',     sprite:'master-ball.png',        icon:'✨', name:'Legendary Encounter',    cost:600, desc:'Hunt a random Legendary Pokémon'},
 ];
 
 
@@ -880,13 +880,13 @@ function useItem(itemId) {
     const pool = [];
     for (let i = 1; i <= 251; i++) { if (POKE_WEIGHTS[i] === 5 && !NO_SPAWN.has(i)) pool.push(i); }
     const id = pool[Math.floor(Math.random() * pool.length)];
-    showConfirm(item, null, id, `Exchange for Rare Hunt?`); return;
+    showConfirm(item, null, id, `Exchange for Rare Encounter?`); return;
   }
   if (itemId === 'leghunt') {
     const pool = [];
     for (let i = 1; i <= 251; i++) { if (POKE_WEIGHTS[i] === 1) pool.push(i); }
     const id = pool[Math.floor(Math.random() * pool.length)];
-    showConfirm(item, null, id, `Exchange for Legendary Hunt?`); return;
+    showConfirm(item, null, id, `Exchange for Legendary Encounter?`); return;
   }
 
   // Evolution items — show target picker first
